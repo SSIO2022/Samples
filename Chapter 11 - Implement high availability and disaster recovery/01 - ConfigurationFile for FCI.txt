@@ -1,0 +1,11 @@
+; Add this line
+IACCEPTSQLSERVERLICENSETERMS="True"
+; Modify the next lines
+; Change to True to enable unattended installation to progress
+IACCEPTPYTHONLICENSETERMS="True"
+; Quiet simple means you'll see the UI auto-progress.
+QUIETSIMPLE="True"
+; Or, leave QUIETSIMPLE="False" and modify this line for no UI
+QUIET="True"
+; Delete, or comment out, this line
+UIMODE="Normal"

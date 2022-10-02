@@ -1,0 +1,1 @@
+sudo yum localinstall mssql-server_2022.x86_64.rpm

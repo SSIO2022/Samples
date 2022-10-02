@@ -1,0 +1,12 @@
+# save this file as pvc.yaml
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mssql-data-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+  requests:
+   storage: 8Gi

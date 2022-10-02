@@ -1,0 +1,1 @@
+fsutil fsinfo ntfsinfo d:

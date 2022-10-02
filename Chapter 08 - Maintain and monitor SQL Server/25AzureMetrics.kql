@@ -1,0 +1,8 @@
+AzureMetrics 
+| where MetricName == 'dtu_consumption_percent' 
+| make-series 80thPercentile=percentile(Average, 80) 
+ on TimeGenerated in range(ago(7d), now(), 60m) 
+| extend 80thPercentile=series_fir(80thPercentile, repeat(1, 12), true, true) 
+| mv-expand 80thPercentile, TimeGenerated 
+| project todouble(80thPercentile), todatetime(TimeGenerated) 
+| render timechart with (xcolumn=TimeGenerated) 

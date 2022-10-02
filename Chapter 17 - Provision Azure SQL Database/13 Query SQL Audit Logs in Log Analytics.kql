@@ -1,0 +1,5 @@
+//queries the Azure Diagnostics table in Log Analytics using KQL
+//counts the number of database authentication failures and groups by client IP address
+AzureDiagnostics
+|where action_name_s == 'DATABASE AUTHENTICATION FAILED'
+|summarize count() by client_ip_s

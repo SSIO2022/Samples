@@ -1,0 +1,1 @@
+/opt/sudo docker exec -it sql1 "/bin/bash"

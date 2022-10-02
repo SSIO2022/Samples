@@ -1,0 +1,1 @@
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<a new password>'

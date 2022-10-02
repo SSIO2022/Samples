@@ -1,0 +1,3 @@
+In the API, deleting a SQL managed instance is a basic command: 
+
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}?api-version=2015-05-01-preview.
