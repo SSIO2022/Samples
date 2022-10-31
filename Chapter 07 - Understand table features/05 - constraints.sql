@@ -15,15 +15,15 @@ GO
 
 -- Add a unique constraint on WideWorldImporters.Application.Countries
 -- Note: one already exists, UQ_Application_Countries_CountryName
-ALTER TABLE [Application].Countries WITH CHECK
-    ADD CONSTRAINT UC_CountryName UNIQUE (CountryName);
+ALTER TABLE [Application].Countries
+    WITH CHECK ADD CONSTRAINT UC_CountryName UNIQUE (CountryName);
 
 -- Add a unique constraint on WideWorldImporters.Application.Countries
 -- This unique constraint allows for resumable add table constraint
 --    The max duration indicates that the process of creating the constraint
 --    for a maximum of 60 minutes
-ALTER TABLE [Application].Countries WITH CHECK
-    ADD CONSTRAINT UC_CountryName_Resume UNIQUE (CountryName);
+ALTER TABLE [Application].Countries
+    ADD CONSTRAINT UC_CountryName_Resume UNIQUE (CountryName)
     WITH (ONLINE = ON, RESUMABLE = ON, MAX_DURATION = 60);
 
 -- Add check contraint on WideWorldImporters.Sales.Invoices to verify JSON

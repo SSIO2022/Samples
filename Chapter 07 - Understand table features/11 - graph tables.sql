@@ -55,15 +55,13 @@ INSERT INTO dbo.Relationships VALUES
      'mother');
      
 -- Simple graph query
-SELECT P1.FirstName + ‘ is the ‘ + R.RelationshipType +
-    ‘ of ‘ + P2.FirstName + ‘.’
+SELECT P1.FirstName + ' is the ' + R.RelationshipType +
+    ' of ' + P2.FirstName + '.'
 FROM dbo.People P1, dbo.People P2, dbo.Relationships R
 WHERE MATCH(P1-(R)->P2);
 
-
 -- SHORTEST_PATH query
 -- Construct Stella Rosenhain's direct descendants' family tree
--- Construct Stella Rosenhain’s direct descendants’ family tree
 -- In our example data, two rows will be returned
 SELECT P1.FirstName
         , STRING_AGG(P2.FirstName, '->') WITHIN GROUP (GRAPH PATH) AS Decendents

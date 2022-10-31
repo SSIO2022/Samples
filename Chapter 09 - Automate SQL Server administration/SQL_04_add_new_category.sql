@@ -10,4 +10,6 @@
 -- T-SQL SAMPLE 4
 
 -- Add new category
-EXEC msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'Health Check';
+EXEC msdb.dbo.sp_add_category @class = N'JOB'
+    , @type = N'LOCAL'
+    , @name = N'Health Check';

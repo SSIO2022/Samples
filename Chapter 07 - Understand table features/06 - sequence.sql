@@ -18,12 +18,15 @@ CREATE SEQUENCE dbo.MySequence AS int
     CYCLE;
 
 -- Declare a loop counter
-DECLARE @i int = 1;
+DECLARE @i INT = 1;
+
 -- Execute 4 times
 WHILE (@i <= 4)
 BEGIN
     -- Retrieve the next value from the sequence
-    SELECT NEXT VALUE FOR dbo.MySequence AS NextValue;
+    SELECT NEXT VALUE
+    FOR dbo.MySequence AS NextValue;
+
     -- Increment the loop counter
     SET @i = @i + 1;
 END;
@@ -37,11 +40,13 @@ INSERT INTO dbo.SomeTable VALUES (NEXT VALUE FOR dbo.MySequence,
 INSERT INTO dbo.SomeTable VALUES (NEXT VALUE FOR dbo.MySequence,
     NEXT VALUE FOR dbo.MySequence + 1, 'More data...');
 */
-
 -- Declare variables to hold the metadata
-DECLARE @FirstVal sql_variant, @LastVal sql_variant,
-    @Increment sql_variant, @CycleCount int,
-    @MinVal sql_variant, @MaxVal sql_variant;
+DECLARE @FirstVal SQL_VARIANT
+    , @LastVal SQL_VARIANT
+    , @Increment SQL_VARIANT
+    , @CycleCount INT
+    , @MinVal SQL_VARIANT
+    , @MaxVal SQL_VARIANT;
 
 -- Generate 5 numbers and capture all metadata
 EXEC sp_sequence_get_range dbo.MySequence
@@ -54,6 +59,9 @@ EXEC sp_sequence_get_range dbo.MySequence
     , @sequence_max_value = @MaxVal OUTPUT;
 
 -- Output the values of the output parameters
-SELECT @FirstVal AS FirstVal, @LastVal AS LastVal
-    , @CycleCount AS CycleCount, @Increment AS Increment
-    , @MinVal AS MinVal, @MaxVal AS MaxVal;
+SELECT @FirstVal AS FirstVal
+    , @LastVal AS LastVal
+    , @CycleCount AS CycleCount
+    , @Increment AS Increment
+    , @MinVal AS MinVal
+    , @MaxVal AS MaxVal;

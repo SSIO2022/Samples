@@ -2,7 +2,7 @@
 --
 -- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
 --
--- © 2022 MICROSOFT PRESS
+-- Â© 2022 MICROSOFT PRESS
 --
 --##############################################################################
 --
@@ -10,6 +10,4 @@
 -- T-SQL SAMPLE 1
 
 -- Send test email
-exec msdb.dbo.sp_send_dbmail
-@recipients ='yournamehere@domain.com',
-@subject ='test';
+EXEC msdb.dbo.sp_send_dbmail @recipients = 'yournamehere@domain.com', @subject = 'test';

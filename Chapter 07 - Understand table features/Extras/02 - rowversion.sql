@@ -9,7 +9,6 @@
 -- CHAPTER 7: UNDERSTAND TABLE FEATURES
 -- EXTRA T-SQL SAMPLE 2
 --
-
 CREATE DATABASE rowversion_sample;
 GO
 
@@ -17,13 +16,14 @@ USE rowversion_sample;
 GO
 
 CREATE TABLE Versioned (
-	Id INT IDENTITY (1, 1) PRIMARY KEY CLUSTERED NOT NULL,
-	Val NVARCHAR(20),
-	vers ROWVERSION);
+    Id INT IDENTITY(1, 1) PRIMARY KEY CLUSTERED NOT NULL
+    , Val NVARCHAR(20)
+    , vers ROWVERSION
+    );
 
-INSERT INTO Versioned (Val) VALUES
-	('Value A'),
-	('Value B');
+INSERT INTO Versioned (Val)
+VALUES ('Value A')
+    , ('Value B');
 
 SELECT *
 FROM Versioned;
@@ -38,12 +38,12 @@ UNION ALL
 SELECT * FROM Versioned;
 
 -- This is NOT causing duplicate rowversion values
-SELECT Id, Val
+SELECT Id
+    , Val
 INTO Versioned3
 FROM Versioned;
 
-ALTER TABLE Versioned3 
-	ADD vers ROWVERSION;
+ALTER TABLE Versioned3 ADD vers ROWVERSION;
 
 SELECT * FROM Versioned3
 UNION ALL
@@ -53,25 +53,29 @@ CREATE DATABASE rowversion_sample2;
 GO
 
 USE rowversion2;
-CREATE TABLE Versioned (
-	Id INT IDENTITY (1, 1) PRIMARY KEY CLUSTERED NOT NULL,
-	Val NVARCHAR(20),
-	vers ROWVERSION);
 
-INSERT INTO Versioned (Val) VALUES
-	('Value A'),
-	('Value B');
+CREATE TABLE Versioned (
+    Id INT IDENTITY(1, 1) PRIMARY KEY CLUSTERED NOT NULL
+    , Val NVARCHAR(20)
+    , vers ROWVERSION
+    );
+
+INSERT INTO Versioned (Val)
+VALUES ('Value A')
+    , ('Value B');
 
 SELECT *
 FROM Versioned;
 
 CREATE TABLE Versioned4 (
-	Id INT IDENTITY(1, 1) PRIMARY KEY CLUSTERED NOT NULL,
-	--vers ROWVERSION,
-	IdPlus2 AS Id + 2,
-	val NVARCHAR(20)
-);
+    Id INT IDENTITY(1, 1) PRIMARY KEY CLUSTERED NOT NULL
+    ,
+    --vers ROWVERSION,
+    IdPlus2 AS Id + 2
+    , val NVARCHAR(20)
+    );
 
-INSERT INTO Versioned4 VALUES ('Value C');
+INSERT INTO Versioned4
+VALUES ('Value C');
 
 DROP TABLE Versioned4;
