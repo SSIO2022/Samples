@@ -36,7 +36,7 @@ GO
 In the case where you are transferring all of the logins for a server, you can actually prevent orphaned SIDS. You can re-create SQL Server–authenticated logins on multiple servers, each having the same SID. This is not possible using SSMS user interface; instead, you must accomplish this by using the CREATE LOGIN command, as shown here (or using tools we will look at later in this chapter):
 */
 
-CREATE LOGIN [Katherine] WITH PASSWORD=N'strongpassword$^', SID = 0x5931F5B9C157464EA244B9D381DC5CCC;
+CREATE LOGIN [Kirby] WITH PASSWORD=N'<strongpassword>', SID = 0x5931F5B9C157464EA244B9D381DC5CCC;
 
 
 
