@@ -11,7 +11,7 @@ Assuming you are using the same name for user and login, you can use the followi
 
 DECLARE @IncludeUsersWithoutLogin bit = 0;
 SELECT   'ALTER USER [' + dp.name COLLATE DATABASE_DEFAULT + ']' +
-		case when sp.sid is not null then 
+		CASE WHEN sp.sid IS NOT NULL THEN
         ' WITH LOGIN = [' + dp.name + ']; '
 		ELSE ' WITHOUT LOGIN' END AS SQLText,
 		*
