@@ -8,7 +8,7 @@ For example, consider the following script. In it, we will create a new database
 USE Master;
 GO
 --using standard security for simplicity
-CREATE LOGIN TestDbManager WITH PASSWORD = 'S3cure1$'
+CREATE LOGIN TestDbManager WITH PASSWORD = '<strong password>'
 GO
 ALTER SERVER ROLE ##MS_DatabaseManager## ADD MEMBER TestDbManager
 GO
