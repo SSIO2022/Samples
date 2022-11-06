@@ -55,7 +55,7 @@ Note that being in the ##MS_DatabaseManager## role does not confer any rights in
 
 SELECT databases.name as databaseName
 FROM sys.databases
-		JOIN sys.server_principals
+		INNER JOIN sys.server_principals
 			on databases.owner_sid = server_principals.sid
 WHERE server_principals.name= 'TestDbManager';
 
@@ -65,7 +65,7 @@ WHERE server_principals.name= 'TestDbManager';
 As an example, in the next set of statement, I will show you the basics of with this role can do. I start out with a new login, and I put it in the ##MS_LoginManager## server role.
 */
 
-CREATE LOGIN TestLoginManager WITH PASSWORD = 'eu0392ojsjcs3$o';
+CREATE LOGIN TestLoginManager WITH PASSWORD = '<strongpassword>';
 GO
 ALTER SERVER ROLE ##MS_LoginManager## ADD MEMBER TestLoginManager;
 GO      
@@ -78,7 +78,7 @@ EXECUTE AS LOGIN = 'TestLoginManager';
 And now, create a new login. (Be careful to test your security context when doing these tests. It is easy to get lost and be confused by something working or not working because you are not actually in the security context you expect.)
 */
 
-CREATE LOGIN WhatCanIdo with PASSWORD = '32o3o(K*43';
+CREATE LOGIN WhatCanIdo with PASSWORD = '<strongpassword>';
 
 --The next question is “what else can you do to the login?”  You can add it to a role that it is a member of.
 
@@ -135,6 +135,6 @@ GRANT SELECT ALL USER SECURABLES to SupportViewServer;
 GO
 
 --Add the DBA team’s accounts
-ALTER SERVER ROLE SupportViewServer ADD MEMBER [domain\Katherine];
+ALTER SERVER ROLE SupportViewServer ADD MEMBER [domain\Kirby];
 ALTER SERVER ROLE SupportViewServer ADD MEMBER [domain\Colby];
 ALTER SERVER ROLE SupportViewServer ADD MEMBER [domain\David];
