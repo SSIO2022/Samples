@@ -22,7 +22,7 @@ WHERE    dp.is_fixed_role = 0
     AND dp.sid NOT IN ( 0x00 ) --guest
     AND (sp.name IS NOT NULL or @IncludeUsersWithoutLogin = 1)
     AND dp.type_desc = 'SQL_USER'
-	and dp.name <> 'dbo'
+    AND dp.name <> 'dbo'
 ORDER BY dp.name;
 GO
 
