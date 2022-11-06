@@ -6,7 +6,7 @@ It is not a simple task to determine exactly how a server principal obtained the
 */
 
 
-CREATE LOGIN ListEffectivePermissions WITH PASSWORD = 'S3cure#';
+CREATE LOGIN ListEffectivePermissions WITH PASSWORD = '<strong password>';
 GRANT CONNECT ANY DATABASE TO ListEffectivePermissions;
 
 /*
@@ -45,6 +45,6 @@ CREATE USER fred FOR LOGIN [Domain\Fred];
 
 --Not that you cannot use a \ character in a login name unless it is a Windows Authentication based login. Trying to execute either of the following statements:
 
-CREATE LOGIN [Domain\Fred] WITH PASSWORD = '$3cure1';
+CREATE LOGIN [Domain\Fred] WITH PASSWORD = '<strong password>';
 CREATE USER [Dog\Gone] FOR LOGIN [Dog\Gone]; 
 
