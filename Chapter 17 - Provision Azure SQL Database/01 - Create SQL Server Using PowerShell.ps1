@@ -12,10 +12,12 @@ $location = "southcentralus"
 $serverName = "ssio2022"
 $adminSqlLogin = "SQLAdmin"
 $adminSqlSecret = Get-AzKeyVaultSecret -VaultName 'SSIO-KV' -Name 'SQLAdminPwd'
+$tags = @{"CreatedBy"="Kirby"; "Environment"="Dev"}
 $cred = $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $($adminSqlSecret.SecretValue) )
 New-AzSqlServer -ResourceGroupName $resourceGroupName `
    -ServerName $serverName `
    -Location $location `
    -SqlAdministratorCredentials $cred `
    -AssignIdentity `
-   -IdentityType "SystemAsssigned"
+   -IdentityType "SystemAsssigned" `
+   -Tags $tags

@@ -8,7 +8,8 @@
 #> 
 $resourceGroupName = "SQL2022"
 $serverName = "ssio2022"
-$databaseName = "Contoso4"
+$databaseName = "Contoso"
+$tags = @{"CreatedBy"="Kirby"; "Environment"="Dev"}
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
    -ServerName $serverName `
    -Edition "GeneralPurpose" `
@@ -16,4 +17,5 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
    -ComputeGeneration "Gen5" `
    -ComputeMode "Provisioned" `
    -CollationName "Latin1_General_CI_AS" `
-   -DatabaseName $databaseName 
+   -DatabaseName $databaseName `
+   -Tags $tags
