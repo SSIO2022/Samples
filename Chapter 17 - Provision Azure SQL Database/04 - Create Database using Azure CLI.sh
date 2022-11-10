@@ -14,4 +14,7 @@
    --capacity 2 \
    --family Gen5 \
    --compute-model Provisioned 
+   --tags Environment=Dev CreatedBy=Kirby
+
+   
 az sql db show --resource-groupSIO2022 --server ssio2022 --name Contoso
