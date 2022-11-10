@@ -19,5 +19,5 @@ New-AzSqlServer -ResourceGroupName $resourceGroupName `
    -Location $location `
    -SqlAdministratorCredentials $cred `
    -AssignIdentity `
-   -IdentityType "SystemAsssigned" `
+   -IdentityType "SystemAssigned" `
    -Tags $tags
