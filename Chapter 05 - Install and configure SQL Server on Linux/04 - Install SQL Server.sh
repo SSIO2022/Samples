@@ -1,5 +1,12 @@
-# uncomment the appropriate line 
-# based on your linux distrution and package manager:
+##############################################################################
+#
+#   SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+#
+#   © MICROSOFT PRESS
+#
+##############################################################################
+
+# Uncomment the appropriate line  based on your linux distrution and package manager:
 
 # for RHEL:
 #sudo yum install -y mssql-server

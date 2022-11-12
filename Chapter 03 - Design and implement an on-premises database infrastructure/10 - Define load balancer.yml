@@ -1,3 +1,11 @@
+##############################################################################
+#
+#   SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+#
+#   © MICROSOFT PRESS
+#
+##############################################################################
+
 # save as sql.yaml
 
 apiVersion: apps/v1
