@@ -6,10 +6,10 @@
 --
 --##############################################################################
 
---You should almost never run this code
+-- You should almost never run this code
 USE [WideWorldImporters];
 
---TRUNCATEONLY returns all free space to the OS 
+-- TRUNCATEONLY returns all free space to the OS 
 DBCC SHRINKFILE (
         N'WWI_Log'
         , 0

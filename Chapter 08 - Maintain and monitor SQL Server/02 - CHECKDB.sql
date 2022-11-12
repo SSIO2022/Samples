@@ -6,9 +6,9 @@
 --
 --##############################################################################
 
---Example usage: (last resort only, not recommended!) 
+-- Example usage: (last resort only, not recommended!) 
 
-ALTER DATABASE WorldWideImporters SET EMERGENCY, SINGLE_USER; 
+ALTER DATABASE [WideWorldImporters] SET EMERGENCY, SINGLE_USER; 
 
 DBCC CHECKDB('WideWorldImporters', REPAIR_ALLOW_DATA_LOSS); 
 

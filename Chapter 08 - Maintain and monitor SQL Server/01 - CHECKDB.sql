@@ -6,4 +6,4 @@
 --
 --##############################################################################
 
-DBCC CHECKDB (databasename) WITH NO_INFOMSGS; 
+DBCC CHECKDB ('databasename') WITH NO_INFOMSGS;

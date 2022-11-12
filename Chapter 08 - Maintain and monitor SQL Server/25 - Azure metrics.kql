@@ -1,3 +1,11 @@
+//##############################################################################
+//
+// SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+//
+// © 2022 MICROSOFT PRESS
+//
+//##############################################################################
+
 AzureMetrics 
 | where MetricName == 'dtu_consumption_percent' 
 | make-series 80thPercentile=percentile(Average, 80) 
