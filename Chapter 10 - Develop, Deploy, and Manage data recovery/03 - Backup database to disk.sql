@@ -6,5 +6,5 @@
 --
 --##############################################################################
 
-BACKUP DATABASE WideWorldImporters
+BACKUP DATABASE [WideWorldImporters]
 TO DISK = N'C:\SQLData\Backup\SERVER_WWI_FULL_20221218_210912.BAK';

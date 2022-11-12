@@ -6,5 +6,6 @@
 --
 --##############################################################################
 
-SELECT * FROM sys.fn_dblog(NULL, NULL)
-WHERE Operation LIKE '%delete%';
+SELECT * 
+FROM [sys].[fn_dblog](NULL, NULL)
+WHERE [Operation] LIKE '%delete%';
