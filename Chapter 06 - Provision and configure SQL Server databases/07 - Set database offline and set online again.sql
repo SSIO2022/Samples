@@ -10,7 +10,6 @@
 ALTER DATABASE [database_name] SET OFFLINE;
 
 /* or */
-
 ALTER DATABASE [database_name] SET OFFLINE WITH ROLLBACK IMMEDIATE;
 
 /* set database online again */

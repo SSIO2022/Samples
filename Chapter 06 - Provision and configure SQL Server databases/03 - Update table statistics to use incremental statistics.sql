@@ -6,5 +6,5 @@
 --
 --##############################################################################
 
-UPDATE STATISTICS [Purchasing].[SupplierTransactions]
+UPDATE STATISTICS [Purchasing].[SupplierTransactions] 
     [CX_Purchasing_SupplierTransactions] WITH RESAMPLE, INCREMENTAL = ON;
