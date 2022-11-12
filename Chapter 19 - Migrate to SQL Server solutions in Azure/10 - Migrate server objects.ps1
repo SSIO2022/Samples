@@ -1,6 +1,6 @@
 $sourceInstance = "servername" # or servername/instancename
 $targetInstance = "myserver.public.instancename.database.windows.net,3342 " # Azure SQL Managed Instance name with port
-$targetLogin = Get-Credential # provide sign in credential for the target SQL instance, for example, a SQL-authenticated username and password
+$targetLogin = Get-Credential # provide sign in credential for the target SQL Server instance, for example, a SQL Authenticated username and password
 Copy-DbaSysDbUserObject -Source $sourceInstance `
     -Destination $targetInstance `
     -DestinationSqlCredential $targetLogin
