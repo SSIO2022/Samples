@@ -1,10 +1,12 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
+/*
+##############################################################################
+
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
 
 SELECT [g].[DatabaseName] AS [DB]
     , [mf].[name] AS [Logical_File_Name]
