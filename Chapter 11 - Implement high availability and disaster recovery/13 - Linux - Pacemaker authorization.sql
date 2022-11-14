@@ -5,13 +5,8 @@
 -- © 2022 MICROSOFT PRESS
 --
 --##############################################################################
---
--- CHAPTER 11: IMPLEMENT HIGH AVAILABILITY AND DISASTER RECOVERY
--- T-SQL SAMPLE 12
---
 
 -- Creating Pacemaker authentication and authorization
-
 USE [master];
 GO
 

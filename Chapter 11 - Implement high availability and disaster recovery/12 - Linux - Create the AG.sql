@@ -5,13 +5,8 @@
 -- © 2022 MICROSOFT PRESS
 --
 --##############################################################################
---
--- CHAPTER 11: IMPLEMENT HIGH AVAILABILITY AND DISASTER RECOVERY
--- T-SQL SAMPLE 11
---
 
 -- Creating the availability group with three synchronous replicas
-
 CREATE AVAILABILITY GROUP [LinuxAG1]
     WITH (DB_FAILOVER = ON, CLUSTER_TYPE = EXTERNAL)
     FOR REPLICA ON

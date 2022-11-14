@@ -5,13 +5,8 @@
 -- © 2022 MICROSOFT PRESS
 --
 --##############################################################################
---
--- CHAPTER 11: IMPLEMENT HIGH AVAILABILITY AND DISASTER RECOVERY
--- T-SQL SAMPLE 10
---
 
 -- Creating the database mirroring endpoint
-
 CREATE ENDPOINT [Hadr_endpoint]
     AS TCP (LISTENER_IP = (0.0.0.0), LISTENER_PORT = 5022)
     FOR DATA_MIRRORING (
