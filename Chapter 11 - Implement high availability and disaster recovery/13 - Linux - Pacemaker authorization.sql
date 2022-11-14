@@ -1,10 +1,12 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
+/*
+##############################################################################
+
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
 
 -- Creating Pacemaker authentication and authorization
 USE [master];

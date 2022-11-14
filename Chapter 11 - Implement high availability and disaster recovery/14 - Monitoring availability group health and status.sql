@@ -1,18 +1,20 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
+/*
+##############################################################################
+
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
 
 -- This sample is a good foundation script for monitoring.
 
--- Monitor availability group Health on a secondary replica, this query returns
--- a row for every secondary database on the server instance. On the primary 
--- replica, this query returns a row for each primary database and an additional 
--- row for the corresponding secondary database. Recommended executing on the 
--- primary replica.
+/* Monitor availability group Health on a secondary replica, this query returns
+   a row for every secondary database on the server instance. On the primary 
+   replica, this query returns a row for each primary database and an additional 
+   row for the corresponding secondary database. Recommended executing on the 
+   primary replica. */
 IF NOT EXISTS (SELECT @@SERVERNAME
     FROM [sys].[dm_hadr_availability_replica_states] AS [rs]
     WHERE [rs].[is_local] = 1
@@ -49,12 +51,14 @@ FROM [sys].[dm_hadr_database_replica_states] AS [dm]
    INNER JOIN [sys].[availability_groups] [ag] on [ag].[group_id] = [dm].[group_id]
 ORDER BY [ag], [Instance], [DB], [Replica_Role];
 
--- For more information on the data returned in this DMV, read on to the next code 
--- sample and reference https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/[sys]-dm-hadr-database-replica-cluster-states-transact-sql.
+/* For more information on the data returned in this DMV, read on to the next code 
+   sample and reference:
+   https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/[sys]-dm-hadr-database-replica-cluster-states-transact-sql.
+*/
 
--- You should monitor the system table msdb.dbo.suspect_pages and the DMV s
--- ys.dm_hadr_auto_page_repair, which will contain entries of these events. 
--- For example: Check for suspect pages (hopefully 0 rows returned)
+/* You should monitor the system table msdb.dbo.suspect_pages and the DMV s
+   ys.dm_hadr_auto_page_repair, which will contain entries of these events. 
+   For example: Check for suspect pages (hopefully 0 rows returned) */
 SELECT * 
 FROM [msdb].[dbo].[suspect_pages] 
 WHERE ([event_type] <= 3);
@@ -65,15 +69,14 @@ SELECT DB_NAME([database_id]) AS [db]
 FROM [sys].[dm_hadr_auto_page_repair];
 
 
--- Monitor availability groups performance on a secondary replica, this 
--- query returns a row for every secondary database on the server instance. 
--- On the primary replica, this query returns a row for each primary 
--- database and an additional row for the corresponding secondary database.
+/* Monitor availability groups performance on a secondary replica, this 
+   query returns a row for every secondary database on the server instance. 
+   On the primary replica, this query returns a row for each primary 
+   database and an additional row for the corresponding secondary database. */
 IF NOT EXISTS ( SELECT @@SERVERNAME
                FROM [sys].[dm_hadr_availability_replica_states]
                WHERE [is_local] = 1
-                  AND [role_desc] = 'PRIMARY'
-)
+                  AND [role_desc] = 'PRIMARY')
    SELECT 'Recommend: Run This Script on Primary Replica';
 
 DECLARE @BytesFlushed_Start_ms BIGINT
@@ -121,15 +124,15 @@ INNER JOIN (SELECT [DB] = [pc].[instance_name]
             GROUP BY [pc].[instance_name]) [t2] ON [t].[DB] = [t2].[DB];
 
 SELECT @BytesFlushed_Start_ms = MAX([ms_ticks])
-   -- the availability database with the highest potential for data_loss becomes 
-   -- the limiting value for RPO compliance.
+   /* the availability database with the highest potential for data_loss becomes 
+      the limiting value for RPO compliance. */
    , @BytesFlushed_Start = MAX([cntr_value]) 
 FROM [sys].[dm_os_sys_info]
    CROSS APPLY [sys].[dm_os_performance_counters] 
 WHERE [counter_name] LIKE 'Log Bytes Flushed/sec%';
 
--- Adjust sample duration between measurements, so we can observe the change in the 
--- counters and average the difference per second
+/* Adjust sample duration between measurements, so we can observe the change in the 
+   counters and average the difference per second */
 WAITFOR DELAY '00:00:05'; 
 
 UPDATE [t]

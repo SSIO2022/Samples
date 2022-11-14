@@ -1,14 +1,16 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
+/*
+##############################################################################
 
--- Create Extended Events session to monitor availability group synchronization
--- Recommended for diagnostic purposes only
--- For monitoring events on Primary Replica
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
+
+/* Create Extended Events session to monitor availability group synchronization
+   Recommended for diagnostic purposes only
+   For monitoring events on Primary Replica */
 CREATE EVENT SESSION [AG_Synchronization_Events_Primary] ON SERVER
 ADD EVENT sqlserver.hadr_log_block_group_commit,
 ADD EVENT sqlserver.log_flush_start,
@@ -23,8 +25,8 @@ ADD TARGET package0.event_file
 WITH (STARTUP_STATE=ON);
 GO
 
--- Recommended for diagnostic purposes only
--- For monitoring events on a Secondary Replica
+/* Recommended for diagnostic purposes only
+   for monitoring events on a Secondary Replica */
 CREATE EVENT SESSION [AG_Synchronization_Events_Secondary] ON SERVER
 ADD EVENT sqlserver.hadr_transport_receive_log_block_message,
 ADD EVENT sqlserver.log_flush_start,
