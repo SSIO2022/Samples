@@ -1,10 +1,12 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
+/*
+##############################################################################
+
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
 
 CREATE EVENT SESSION [autogrowths] ON SERVER 
 	ADD EVENT sqlserver.database_file_size_change (ACTION(package0.collect_system_time, sqlserver.database_id, sqlserver.database_name, sqlserver.sql_text))
