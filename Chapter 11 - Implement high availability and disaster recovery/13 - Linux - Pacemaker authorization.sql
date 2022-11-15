@@ -1,17 +1,14 @@
---##############################################################################
---
--- SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
---
--- © 2022 MICROSOFT PRESS
---
---##############################################################################
---
--- CHAPTER 11: IMPLEMENT HIGH AVAILABILITY AND DISASTER RECOVERY
--- T-SQL SAMPLE 12
---
+/*
+##############################################################################
+
+	SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+
+	© 2022 MICROSOFT PRESS
+
+##############################################################################
+*/
 
 -- Creating Pacemaker authentication and authorization
-
 USE [master];
 GO
 
