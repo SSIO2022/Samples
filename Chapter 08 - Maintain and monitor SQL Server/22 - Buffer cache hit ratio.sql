@@ -10,7 +10,7 @@
 
 SELECT SYSDATETIMEOFFSET() AS [Time_Observed]
 	, CONVERT(DECIMAL(9, 1) 
-		,100 * (
+		, 100 * (
 			SELECT CONVERT(DECIMAL(9, 1), [cntr_value]) AS [cntr_value]
 			FROM [sys].[dm_os_performance_counters] AS [pc]
 			WHERE [pc].[COUNTER_NAME] = 'Buffer cache hit ratio'

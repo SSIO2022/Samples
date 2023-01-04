@@ -8,9 +8,9 @@
 ##############################################################################
 */
 
-SELECT SYSDATETIMEOFFSET() AS Time_Observed
-	, MAX(CONVERT(DECIMAL(19, 3), [os].[physical_memory_kb] / 1024.0 / 1024.0)) AS OS_Memory_GB
-	, MAX(CONVERT(DECIMAL(19, 3), [sm].[available_physical_memory_kb] / 1024.0 / 1024.0)) AS OS_Available_Memory_GB
+SELECT SYSDATETIMEOFFSET() AS [Time_Observed]
+	, MAX(CONVERT(DECIMAL(19, 3), [os].[physical_memory_kb] / 1024.0 / 1024.0)) AS [OS_Memory_GB]
+	, MAX(CONVERT(DECIMAL(19, 3), [sm].[available_physical_memory_kb] / 1024.0 / 1024.0)) AS [OS_Available_Memory_GB]
 	, MAX(CASE [counter_name]
 			WHEN 'Target Server Memory (KB)' THEN 
 				CONVERT(DECIMAL(19, 3), [cntr_value] / 1024.0 / 1024.0)
