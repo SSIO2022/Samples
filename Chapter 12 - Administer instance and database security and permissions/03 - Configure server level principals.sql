@@ -84,7 +84,7 @@ EXECUTE AS LOGIN = 'TestLoginManager';
 	when doing these tests. It is easy to get lost and be confused by 
 	something working or not working because you are not actually in the 
 	security context you expect.) */
-CREATE LOGIN [WhatCanIdo] with PASSWORD = '<strongpassword>';
+CREATE LOGIN [WhatCanIDo] with PASSWORD = '<strongpassword>';
 
 /*	The next question is “what else can you do to the login?”  You can add 
 it to a role that it is a member of. */
@@ -92,11 +92,11 @@ ALTER SERVER ROLE [##MS_LoginManager##] ADD MEMBER [WhatCanIDo];
 
 /* 	But each of the next three statements will fail, the first two will 
 	question if the role exists. */
-ALTER SERVER ROLE [##MS_DatabaseConnector##] ADD MEMBER [WhatCanIdo];
+ALTER SERVER ROLE [##MS_DatabaseConnector##] ADD MEMBER [WhatCanIDo];
 ALTER SERVER ROLE [sysadmin] ADD MEMBER [WhatCanIDo];
 
 -- The next statement will fail with the error “Grantor does not have GRANT permission”
-GRANT CONTROL SERVER TO [WhatCanIdo];
+GRANT CONTROL SERVER TO [WhatCanIDo];
 
 /*	This is an important distinction between the ##MS_LoginManager## role 
 	and the securityadmin role. It is allowed to grant new rights that it 
@@ -115,7 +115,7 @@ ALTER SERVER ROLE [##MS_DatabaseConnector##] ADD MEMBER [TestLoginManager];
 
 EXECUTE AS LOGIN = 'TestLoginManager';
 
-ALTER SERVER ROLE [##MS_DatabaseConnector##] ADD MEMBER [WhatCanIdo];
+ALTER SERVER ROLE [##MS_DatabaseConnector##] ADD MEMBER [WhatCanIDo];
 REVERT;
 
 /*	Security Prinicpals\Server level roles\User defined server roles
