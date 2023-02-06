@@ -89,10 +89,10 @@ WHERE [R].[IS_DISABLED] = 0
 SELECT [RM].[state_desc] + N' ' + [RM].[permission_name] 
         + CASE WHEN [E].[name] IS NOT NULL THEN 
             'ON ENDPOINT::[' + [E].[name] + '] '
-            ELSE 
-                ''
+            ELSE ''
             END + N' TO '
-         + CAST(QUOTENAME([U].[name] COLLATE DATABASE_DEFAULT) AS NVARCHAR(256)) + ';' AS [CREATETSQL]
+        + CAST(QUOTENAME([U].[name] COLLATE DATABASE_DEFAULT) AS NVARCHAR(256)) 
+        + ';' AS [CREATETSQL]
 FROM     [sys].[server_permissions] AS [RM]
     INNER JOIN [sys].[server_principals] AS [U] 
         ON [RM].[grantee_principal_id] = [U].[principal_id]
