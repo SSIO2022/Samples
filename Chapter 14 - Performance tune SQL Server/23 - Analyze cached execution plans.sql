@@ -13,10 +13,10 @@ SELECT
     qs.total_logical_reads,
     qs.last_execution_time,
     qs.statement_start_offset as StatementStartInObject,
-      SUBSTRING (txt.[text], qs.statement_start_offset/2 + 1 ,
+    SUBSTRING (txt.[text], qs.statement_start_offset/2 + 1 ,
      CASE
-WHEN qs.statement_end_offset = -1
-THEN LEN (CONVERT(nvarchar(max), txt.[text]))
+         WHEN qs.statement_end_offset = -1
+         THEN LEN (CONVERT(nvarchar(max), txt.[text]))
          ELSE qs.statement_end_offset/2 - qs.statement_start_offset/2 + 1 END)
      AS StatementText,
       qp.query_plan as QueryPlan,
