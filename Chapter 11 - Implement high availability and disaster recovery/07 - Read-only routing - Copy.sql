@@ -20,7 +20,7 @@ ALTER AVAILABILITY GROUP [wwi]
 /*  This ALTER statement provides a read-only routing list that is load balanced. 
     Note the extra set of parentheses. With the configuration in the following 
     sample, read-only traffic will be routed to a load-balance group of SQLSERVER-1 
-    and SQLSERVER-0, but failing those connections, to SQLSERVER-0: */
+    and SQLSERVER-2, but failing those connections, to SQLSERVER-0: */
 ALTER AVAILABILITY GROUP [wwi]
     MODIFY REPLICA ON 'SQLSERVER-0'
     WITH (PRIMARY_ROLE(READ_ONLY_ROUTING_LIST =(('SQLSERVER-1', 'SQLSERVER-2'), 'SQLSERVER-0')));
