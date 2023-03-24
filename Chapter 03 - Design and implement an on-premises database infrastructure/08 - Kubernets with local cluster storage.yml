@@ -1,0 +1,20 @@
+##############################################################################
+#
+#   SAMPLE SCRIPTS TO ACCOMPANY "SQL SERVER 2022 ADMINISTRATION INSIDE OUT"
+#
+#   © MICROSOFT PRESS
+#
+##############################################################################
+
+# save this file as pvc.yaml
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mssql-data-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+  requests:
+   storage: 8Gi
