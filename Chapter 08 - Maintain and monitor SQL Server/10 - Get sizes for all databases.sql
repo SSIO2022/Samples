@@ -30,7 +30,7 @@ SELECT [d].[name] AS [Database_Name]
 	, CAST([size] / 128.0 AS DECIMAL(19, 2)) AS [FileSize_MB]
 	, CAST(CAST(FILEPROPERTY([df].[name], ''SpaceUsed'') AS INT) / 128.0 AS DECIMAL(19, 2)) AS [SpaceUsed_MB]
 	, CAST([size] / 128.0 - CAST(FILEPROPERTY([df].[name], ''SpaceUsed'') AS INT) / 128.0 AS DECIMAL(19, 2)) AS [Available_MB]
-	, CAST(((([size] / 128.0) - (CAST(FILEPROPERTY([df].[name], ''SpaceUsed'' AS INT) * 8 / 1024.0)) / (size * 8 / 1024.0)) * 100. AS DECIMAL(19, 2)) AS [FreePercent]
+	, CAST(((([size] / 128.0) - (CAST(FILEPROPERTY([df].[name], ''SpaceUsed'') AS INT) * 8 / 1024.0)) / (size * 8 / 1024.0)) * 100. AS DECIMAL(19, 2)) AS [FreePercent]
 FROM [sys].[database_files] AS [df]
     CROSS APPLY [sys].[databases] AS [d]
 WHERE [d].[database_id] = DB_ID();'
